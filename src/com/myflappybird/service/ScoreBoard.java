@@ -7,58 +7,58 @@ import com.myflappybird.ui.CreateWindow;
 public class ScoreBoard {
 	
 	/**
-	 * ·ÖÊıÃæ°åµÄX×ø±ê
+	 * åˆ†æ•°é¢æ¿çš„Xåæ ‡
 	 */
 	private int boardX;
 	
 	/**
-	 * Ãæ°åµÄÔË¶¯µÄËÙ¶È
+	 * é¢æ¿çš„è¿åŠ¨çš„é€Ÿåº¦
 	 */
 	private final int BOARD_SPEED = 8;
 	
 	/**
-	 * Ãæ°åµÄ¿í¶È
+	 * é¢æ¿çš„å®½åº¦
 	 */
 	private final int BOARD_WIDTH = 500;
 	
 	/**
-	 * Ãæ°åµÄ¸ß¶È
+	 * é¢æ¿çš„é«˜åº¦
 	 */
 	private final int BOARD_HEIGHT = 200;
 	
 	/**
-	 * ·ÖÊıÃæ°åµÄY×ø±ê
+	 * åˆ†æ•°é¢æ¿çš„Yåæ ‡
 	 */
 	private int boardY;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * @param boardX
 	 * @param boardY
 	 */
-	public ScoreBoard(int boardX, int boardY){
+	public ScoreBoard(int boardX, int boardY) {
 		this.boardX = boardX;
 		this.boardY = boardY;
 	}
 	
 	/**
-	 * Ãæ°åÒÆ¶¯µÄ·½·¨
+	 * é¢æ¿ç§»åŠ¨çš„æ–¹æ³•
 	 */
-	public void boardMove(){
-		if(boardY < 100){
+	public void boardMove() {
+		if (boardY < 100) {
 			return ;
 		}
 		boardY -= BOARD_SPEED;
 	}
 	
 	/**
-	 * »æÖÆÃæ°åµÄ·½·¨
+	 * ç»˜åˆ¶é¢æ¿çš„æ–¹æ³•
 	 * @param g
 	 */
-	public void drawBoard(Graphics g){
-		//»æÖÆwindow
+	public void drawBoard(Graphics g) {
+		//ç»˜åˆ¶window
 		CreateWindow.drawWindow(g, Img.windows[0], boardX, boardY, BOARD_WIDTH, BOARD_HEIGHT);
-		//»æÖÆËÀÍöĞ¡Äñ 
+		//ç»˜åˆ¶æ­»äº¡å°é¸Ÿ 
 		g.drawImage(Img.deadbird, boardX, boardY, null);	
 	}
 	

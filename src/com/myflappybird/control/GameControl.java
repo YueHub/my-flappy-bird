@@ -5,29 +5,29 @@ import com.myflappybird.dto.GameDto;
 public class GameControl {
 	
 	/**
-	 * Êı¾İ´«Êä²ã
+	 * æ•°æ®ä¼ è¾“å±‚
 	 */
 	GameDto dto;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public GameControl(GameDto dto){
+	public GameControl(GameDto dto) {
 		this.dto = dto;
 	}
 	
 	/**
-	 * ÓÎÏ·¿ªÊ¼
+	 * æ¸¸æˆå¼€å§‹
 	 */
-	public void gameStart(){
+	public void gameStart() {
 		this.dto.setGamestart(true);
 	}
 	
 	/**
-	 * µ÷ÓÃÂß¼­²ãĞ¡ÄñÏòÉÏ·ÉµÄ·½·¨
+	 * è°ƒç”¨é€»è¾‘å±‚å°é¸Ÿå‘ä¸Šé£çš„æ–¹æ³•
 	 */
-	public void birdUp(){
-		if(this.dto.isBirdDead()){
+	public void birdUp() {
+		if (this.dto.isBirdDead()) {
 			return ;
 		}
 		this.dto.setSpeed(-22.3);
@@ -35,7 +35,7 @@ public class GameControl {
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÔİÍ£Îªtrue
+	 * è®¾ç½®æ¸¸æˆæš‚åœä¸ºtrue
 	 */
 	public void pause() {
 		this.dto.setPause(!this.dto.isPause());

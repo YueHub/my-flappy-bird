@@ -11,74 +11,68 @@ import com.myflappybird.music.Music;
 public class Pillars {
 	
 	/**
-	 * ���ݴ����
+	 * 数据传输层
 	 */
 	GameDto dto;
 	
 	/**
-	 * �ڲ��ࣨ�����ࣩ
+	 * 柱子内部类
 	 */
-	private class Pillar{
+	private class Pillar {
 		/**
-		 * ���ӵĿ��
+		 * 柱子的长度
 		 */
 		private static final int PILLAR_W = 70;
 		
 		/**
-		 * ���ӵĸ߶�
+		 * 柱子的宽度
 		 */
 		private static final int PILLAR_H = 500;
 		
 		/**
-		 * ���ӵ�X����
+		 * 柱子的Ｘ坐标
 		 */
 		private int pillarX;
 		
 		/**
-		 * ���ӵ�Y����
+		 * 柱子的Ｙ坐标
 		 */
 		private int pillarY;
 		
-		/**
-		 * ���ӵĹ��췽��
-		 */
-		public Pillar(int pillarX,int pillarY){
+		public Pillar(int pillarX,int pillarY) {
 			this.pillarX = pillarX;
 			this.pillarY = pillarY;
 		}
 		
 		/**
-		 * �������ӵķ���
+		 * 绘制柱子
 		 */
-		public void drawPillar(Graphics g,Image img){
+		public void drawPillar(Graphics g,Image img) {
 			g.drawImage(img, pillarX, pillarY, null);
 		}
 	}
 
 	/**
-	 * �������������
+	 * 上方柱子
 	 */
 	private Pillar abovePillar;
 	
 	/**
-	 * �������������
+	 * 下方柱子
 	 */
 	private Pillar belowPillar;
 	
 	/**
-	 * �������ƶ����ٶ�
+	 * 柱子移动的速度
 	 */
 	private final int PILLARS_SPEED = 8;  
 	
 	/**
-	 * ������������������ӿ�϶�ĸߵ�
+	 * 柱子的
 	 */
 	private int y ;
 	
-	/**
-	 *������Ĺ��췽�� 
-	 */
-	public Pillars(GameDto dto ,int pillarsX){
+	public Pillars(GameDto dto ,int pillarsX) {
 		this.dto = dto;
 		y = 200+(int)(Math.random()*300);
 		abovePillar = new Pillar(pillarsX,-y);
@@ -86,17 +80,17 @@ public class Pillars {
 	}
 	
 	/**
-	 * �ƶ����ӵķ���
+	 * 左移
 	 */
-	public void moveX(){
-		//����Ƿ�Խ��С��
+	public void moveX() {
+		//　计算分数
 		this.calcScore();
-		//�����Ϸ��ͣ�Ͳ����ƶ�
-		if(this.dto.isPause()||this.dto.isBirdDead()){
+		//　是否暂停或小鸟是否死亡
+		if (this.dto.isPause()||this.dto.isBirdDead()) {
 			return ;
 		}
-		//���������ʧ�ڻ���֮��ͻص���ʼ��
-		if(abovePillar.pillarX<-Pillar.PILLAR_W||belowPillar.pillarX<-Pillar.PILLAR_W){
+		//　柱子的上下移动
+		if (abovePillar.pillarX<-Pillar.PILLAR_W||belowPillar.pillarX<-Pillar.PILLAR_W) {
 			abovePillar.pillarX = 650;
 			belowPillar.pillarX = 650;
 			y = 200+(int)(Math.random()*300);
@@ -107,19 +101,19 @@ public class Pillars {
 		belowPillar.pillarX-=PILLARS_SPEED;
 	}
 	
-	public void moveY(){
+	public void moveY() {
 		int i = 0;
-		for(;abovePillar.pillarY>=(-y)&&abovePillar.pillarY<=(-y+50)&&i==0;i++){
+		for (;abovePillar.pillarY>=(-y) && abovePillar.pillarY<=(-y+50) && i==0; i++) {
 			abovePillar.pillarY++;
 		}
 		
 	}
 	
 	/**
-	 * ��������ķ���
+	 * 计算分数
 	 */
-	public void calcScore(){
-		if(this.goThroughBird()){
+	public void calcScore() {
+		if (this.goThroughBird()) {
 			int score = this.dto.getScore();
 			score++;
 			this.dto.setScore(score);
@@ -127,24 +121,24 @@ public class Pillars {
 	}
 	
 	/**
-	 * �õ������ӵľ���
+	 * 用以上柱子碰撞检测
 	 */
-	public Rectangle getRect1(){
+	public Rectangle getRect1() {
 		return new Rectangle(abovePillar.pillarX,abovePillar.pillarY,Pillar.PILLAR_W,Pillar.PILLAR_H);
 	}
 	
 	/**
-	 * �õ������ӵľ���
+	 *　用以下柱子碰撞检测
 	 */
-	public Rectangle getRect2(){
+	public Rectangle getRect2() {
 		return new Rectangle(belowPillar.pillarX,belowPillar.pillarY,Pillar.PILLAR_W,Pillar.PILLAR_H);
 	}
 	
 	/**
-	 * С��ͨ������ʱ
+	 * 通过柱子的音效
 	 */
-	public void throughMusic(){
-		if(this.goThroughBird()){
+	public void throughMusic() {
+		if (this.goThroughBird()) {
 			try {
 				Music throughMusic = new Music("Music/point.wav");
 				throughMusic.musicPlay();
@@ -155,19 +149,19 @@ public class Pillars {
 	}
 	
 	/**
-	 * ����������
+	 * 绘制柱子
 	 */
-	public void drawPillars(Graphics g){ 
-		//����������
+	public void drawPillars(Graphics g) { 
+		//　绘制上柱子
 		abovePillar.drawPillar(g, Img.pillar0);
-		//����������
+		//　绘制下柱子
 		belowPillar.drawPillar(g, Img.pillar1);
 	}
 	
 	/**
-	 * С���Ƿ�ͨ�����ӵ��ж�
+	 *　小鸟是否穿过 
 	 */
-	public boolean goThroughBird(){
+	public boolean goThroughBird() {
 		return abovePillar.pillarX>=(100-PILLARS_SPEED/2)&&abovePillar.pillarX<=(100+PILLARS_SPEED/2);
 }
 }

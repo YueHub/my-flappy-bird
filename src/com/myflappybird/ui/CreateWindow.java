@@ -6,7 +6,7 @@ import java.awt.Image;
 public class CreateWindow {
 	
 	/**
-	 * »æÖÆ´°¿ÚµÄ·½·¨(ÇĞ¸î)
+	 * ç»˜åˆ¶çª—å£çš„æ–¹æ³•(åˆ‡å‰²)
 	 * @param g
 	 * @param img
 	 * @param X
@@ -15,25 +15,25 @@ public class CreateWindow {
 	 * @param height
 	 */
 	public static void  drawWindow(Graphics g, Image img, int X, int Y, int width, int height){
-		//ÇĞ¸î×óÉÏ²¿·Ö
+		//åˆ‡å‰²å·¦ä¸Šéƒ¨åˆ†
 		g.drawImage(img, X, Y, X+9, Y+9, 0, 0, 9,9, null);
-		//ÇĞ¸îÖĞÉÏ²¿·Ö
+		//åˆ‡å‰²ä¸­ä¸Šéƒ¨åˆ†
 		g.drawImage(img, X+9, Y, X+width - 9, Y+9, 9, 0, 55,9, null);
-		//ÇĞ¸îÓÒÉÏ²¿·Ö
+		//åˆ‡å‰²å³ä¸Šéƒ¨åˆ†
 		g.drawImage(img, X+width - 9, Y, X+width, Y+9, 55, 0, 64,9, null);
 		
-		//ÇĞ¸î×óÖĞ²¿·Ö
+		//åˆ‡å‰²å·¦ä¸­éƒ¨åˆ†
 		g.drawImage(img, X, Y + 9, X+9, Y+height-9, 0, 9, 9,55, null);
-		//ÇĞ¸îÖĞÖĞ²¿·Ö
+		//åˆ‡å‰²ä¸­ä¸­éƒ¨åˆ†
 		g.drawImage(img, X+9, Y+9, X+width-9, Y+height-9, 9, 9, 55,55, null);
-		//ÇĞ¸îÓÒÖĞ²¿·Ö
+		//åˆ‡å‰²å³ä¸­éƒ¨åˆ†
 		g.drawImage(img, X+width-9, Y+9, X+width, Y+height-9, 55, 9, 64,55, null);
 		
-		//ÇĞ¸îÏÂ×ó²¿·Ö
+		//åˆ‡å‰²ä¸‹å·¦éƒ¨åˆ†
 		g.drawImage(img, X, Y+height-9, X+9, Y+height, 0, 55, 9,64, null);
-		//ÇĞ¸îÏÂÖĞ²¿·Ö
+		//åˆ‡å‰²ä¸‹ä¸­éƒ¨åˆ†
 		g.drawImage(img, X+9, Y+height-9, X+width-9, Y+height, 9, 55, 55,64, null);
-		//ÇĞ¸îÏÂÓÒ²¿·Ö
+		//åˆ‡å‰²ä¸‹å³éƒ¨åˆ†
 		g.drawImage(img, X+width-9, Y+height-9, X+width, Y+height, 55, 55, 64,64, null);		
 	}
 }

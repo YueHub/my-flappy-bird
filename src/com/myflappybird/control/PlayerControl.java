@@ -4,43 +4,42 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import com.myflappybird.dto.GameDto;
 
-public class PlayerControl extends KeyAdapter{
+public class PlayerControl extends KeyAdapter {
 
 	/**
-	 * Êı¾İ´«Êä²ã
+	 * æ•°æ®ä¼ è¾“å±‚
 	 */
 	GameDto dto;
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷
+	 * æ¸¸æˆæ§åˆ¶å™¨
 	 */
 	GameControl gamecontrol;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public PlayerControl(GameDto dto){
+	public PlayerControl(GameDto dto) {
 		this.dto = dto;
 		gamecontrol = new GameControl(this.dto);
 	}
 	
 	/**
-	 * ÊÂ¼ş¼àÌı
+	 * äº‹ä»¶ç›‘å¬
 	 */
-	public void keyPressed(KeyEvent e){
-		switch(e.getKeyCode()){
-		case KeyEvent.VK_SPACE:
-		case KeyEvent.VK_UP:
-			this.gamecontrol.birdUp();
-			break;
-		case KeyEvent.VK_ENTER:
-			this.gamecontrol.pause();
-			break;
-		case KeyEvent.VK_F1:
-			this.gamecontrol.gameStart();
-			break;
-		default:break;
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+			case KeyEvent.VK_SPACE:
+			case KeyEvent.VK_UP:
+				this.gamecontrol.birdUp();
+				break;
+			case KeyEvent.VK_ENTER:
+				this.gamecontrol.pause();
+				break;
+			case KeyEvent.VK_F1:
+				this.gamecontrol.gameStart();
+				break;
+			default:break;
 		}	
 	}
-	
 }

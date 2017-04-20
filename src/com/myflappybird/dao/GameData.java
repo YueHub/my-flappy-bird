@@ -12,50 +12,49 @@ import com.myflappybird.dto.GameDto;
 public class GameData implements Data{
 
 	/**
-	 * Êý¾Ý´«Êä²ã
+	 * æ•°æ®ä¼ è¾“å±‚
 	 */
 	GameDto dto;
 	
 	/**
-	 * Êý¾ÝÊäÈëÁ÷
+	 * æ•°æ®è¾“å…¥æµ
 	 */
 	DataInputStream is;
 	
 	/**
-	 * Êý¾ÝÊä³öÁ÷
+	 * æ•°æ®è¾“å‡ºæµ
 	 */
 	DataOutputStream os;
 	
 	/**
-	 * ÀúÊ·×î¸ß·Ö
+	 * åŽ†å²æœ€é«˜åˆ†
 	 */
 	private static int MaxScore;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æž„é€ æ–¹æ³•
 	 * @param dto
 	 */
-	public GameData(GameDto dto){
+	public GameData(GameDto dto) {
 		MaxScore = 0;
 		this.dto = dto;
 	}
 	
 	/**
-	 * ´æ´¢Êý¾ÝµÄ·½·¨
+	 * å­˜å‚¨æ•°æ®çš„æ–¹æ³•
 	 */
-	public void saveData(){
-		if(this.dto.isGameover()){
+	public void saveData() {
+		if (this.dto.isGameover()) {
 			try {
 				os = new DataOutputStream(new FileOutputStream("save/maxScore.bat"));
 				os.writeInt(MaxScore);
 				is = new DataInputStream(new FileInputStream("save/maxScore.bat"));
-				if(this.dto.getScore() > is.read()){
+				if (this.dto.getScore() > is.read()) {
 					MaxScore = this.dto.getScore();
-				}
-				else{
+				}  else {
 					MaxScore = is.read();
 				}
-				System.out.println("ÀúÊ·×î¸ß·ÖÎª"+is.read());
+				System.out.println("åŽ†å²æœ€é«˜åˆ†ä¸º"+is.read());
 				
 				os.close();
 				is.close();
@@ -69,18 +68,16 @@ public class GameData implements Data{
 	}
 	
 	/**
-	 * ¼ÆËã×î¸ß·ÖµÄ·½·¨
+	 * è®¡ç®—æœ€é«˜åˆ†çš„æ–¹æ³•
 	 */
-	public void calcMaxScore(){
+	public void calcMaxScore() {
 		try {
 			is = new DataInputStream(new FileInputStream("save/maxScore.bat"));
-			if(MaxScore > is.readInt()){
+			if (MaxScore > is.readInt()) {
 				
-			}
-			else{
+			} else {
 				MaxScore = is.readInt();
 			}
-			
 			is.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

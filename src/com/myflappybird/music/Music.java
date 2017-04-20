@@ -1,37 +1,35 @@
 package com.myflappybird.music;
 
-import sun.audio.*; // Òı Èësun.audio °ü
+import sun.audio.*; // å¼• å…¥sun.audio åŒ…
 import java.io.*;
 
 public class Music {
 
 	/**
-	 * ÉùÒôÊäÈëÁ÷
+	 * å£°éŸ³è¾“å…¥æµ
 	 */
 	InputStream in ;
 	
 	/**
-	 * AudioStream¶ÔÏó
+	 * AudioStreamå¯¹è±¡
 	 */
 	AudioStream as ; 
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public Music(String filename) throws IOException{
-		//´ò¿ªÒ»¸öÉùÒôÎÄ¼ş×÷ÎªÊäÈëÁ÷
+	public Music(String filename) throws IOException {
+		//æ‰“å¼€ä¸€ä¸ªå£°éŸ³æ–‡ä»¶ä½œä¸ºè¾“å…¥æµ
 		in = new FileInputStream (filename);
-		//¸ù¾İÊäÈëÁ÷´´½¨AudioStream¶ÔÏó
+		//æ ¹æ®è¾“å…¥æµåˆ›å»ºAudioStreamå¯¹è±¡
 		as = new AudioStream(in); 
 	}
 	
 	/**
-	 * ÉùÒô²¥·Å
+	 * å£°éŸ³æ’­æ”¾
 	 */
-	public void musicPlay(){ 
-		//ÓÃAudioPlayerÖĞµÄ¾²Ì¬³ÉÔ±player¿ØÖÆ²¥·Å
+	public void musicPlay() { 
+		//ç”¨AudioPlayerä¸­çš„é™æ€æˆå‘˜playeræ§åˆ¶æ’­æ”¾
 		AudioPlayer.player.start(as); 
 	}
-	
-	
 }

@@ -8,100 +8,97 @@ import com.myflappybird.img.Img;
 public class Ground {
 	
 	/**
-	 * Êı¾İ´«Êä²ã
+	 * æ•°æ®ä¼ è¾“å±‚
 	 */
 	GameDto dto;
 	
 	/**
-	 * µØÃæµÄ³¤¶È
+	 * åœ°é¢çš„é•¿åº¦
 	 */
 	private final int GROUND_WIDTH = 800;
 	
 	/**
-	 * µØÃæµÄ¸ß¶È
+	 * åœ°é¢çš„é«˜åº¦
 	 */
 	private final int GROUND_HEIGHT = 150;
 	
 	/**
-	 * µØÃæµÄX×ø±ê
+	 * åœ°é¢çš„Xåæ ‡
 	 */
 	private int groundX;
 	
 	/**
-	 * µØÃæµÄY×ø±ê
+	 * åœ°é¢çš„Yåæ ‡
 	 */
 	private int groundY;
 	
 	/**
-	 * µØÃæµÄÒÆ¶¯µÄËÙ¶È
+	 * åœ°é¢çš„ç§»åŠ¨çš„é€Ÿåº¦
 	 */
 	private final int SPEED = 8;
 	
 	/**
-	 * µØÃæµÄ¹¹Ôì·½·¨
+	 * åœ°é¢çš„æ„é€ æ–¹æ³•
 	 */
-	public Ground(GameDto dto ,int groundX,int groundY){
+	public Ground(GameDto dto ,int groundX,int groundY) {
 		this.dto = dto;
 		this.groundX = groundX;
 		this.groundY = groundY;
 	}
 	
 	/**
-	 * µØÃæÒÆ¶¯µÄ·½·¨
+	 * åœ°é¢ç§»åŠ¨çš„æ–¹æ³•
 	 */
-	public void move(){
-		//Èç¹ûÓÎÏ·ÔİÍ£»òĞ¡ÄñËÀÍöµØÃæ¾Í²»ÔÙÒÆ¶¯
-		if(this.dto.isPause()||this.dto.isBirdDead()){
+	public void move() {
+		//å¦‚æœæ¸¸æˆæš‚åœæˆ–å°é¸Ÿæ­»äº¡åœ°é¢å°±ä¸å†ç§»åŠ¨
+		if (this.dto.isPause() || this.dto.isBirdDead()) {
 			return ;
 		}
-		if(groundX<-100){
+		if (groundX <-100) {
 			groundX=0;
 		}
 		groundX-=SPEED;
 	}
 	
 	/**
-	 * µÃµ½µØÃæµÄ¾ØĞÎ
+	 * å¾—åˆ°åœ°é¢çš„çŸ©å½¢
 	 */
-	public Rectangle getRect(){
+	public Rectangle getRect() {
 		return new Rectangle(groundX,groundY,GROUND_WIDTH,GROUND_HEIGHT);
 	}
 	
 	/**
-	 * »æÖÆµØÃæµÄ·½·¨
+	 * ç»˜åˆ¶åœ°é¢çš„æ–¹æ³•
 	 */
-	public void drawGround(Graphics g){
+	public void drawGround(Graphics g) {
 		g.drawImage(Img.ground, groundX, groundY, null);
 	}
 	
 	/**
-	 * µÃµ½µØÃæX×ø±êµÄ·½·¨
+	 * å¾—åˆ°åœ°é¢Xåæ ‡çš„æ–¹æ³•
 	 */
-	public int getGroundX(){
+	public int getGroundX() {
 		return groundX;
 	}
 	
 	/**
-	 * ÉèÖÃµØÃæX×ø±êµÄ·½·¨
+	 * è®¾ç½®åœ°é¢Xåæ ‡çš„æ–¹æ³•
 	 */
-	public void setGroundX(int groundX){
+	public void setGroundX(int groundX) {
 		this.groundX = groundX;
 	}
 	
 	/**
-	 * µÃµ½µØÃæY×ø±êµÄ·½·¨
+	 * å¾—åˆ°åœ°é¢Yåæ ‡çš„æ–¹æ³•
 	 */
-	public int getGroundY(){
+	public int getGroundY() {
 		return groundY;
 	}
 	
 	/**
-	 * ÉèÖÃµØÃæX×ø±êµÄ·½·¨
+	 * è®¾ç½®åœ°é¢Xåæ ‡çš„æ–¹æ³•
 	 */
-	public void setGroundY(int groundY){
+	public void setGroundY(int groundY) {
 		this.groundY = groundY;
 	}
-	
-	
-	
 }

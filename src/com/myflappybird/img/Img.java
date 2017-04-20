@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 public class Img {
 	
 	/**
-	 * ±³¾°Í¼Æ¬
+	 * èƒŒæ™¯å›¾ç‰‡
 	 */
 	public static Image background = new ImageIcon("skin/Graphics01/background.png").getImage();
 	
@@ -15,94 +15,94 @@ public class Img {
 	
 	
 	/**
-	 * ÓÎÏ·×î³õµÄ»¶Ó­½çÃæ
+	 * æ¸¸æˆæœ€åˆçš„æ¬¢è¿ç•Œé¢
 	 */
 	public static Image loading = new ImageIcon("skin/Graphics01/loading.png").getImage();
 	
 	public static Image rect = new ImageIcon("skin/Graphics01/rect.png").getImage();
 	
 	/**
-	 * ÓÎÏ·¿ªÊ¼Ê±µÄÍ¼Æ¬
+	 * æ¸¸æˆå¼€å§‹æ—¶çš„å›¾ç‰‡
 	 */
 	public static Image start = new ImageIcon("skin/Graphics01/start.png").getImage();
 	
 	/**
-	 * ¿ªÊ¼ÓÎÏ·µÄ°´Å¥µÄÍ¼Æ¬
+	 * å¼€å§‹æ¸¸æˆçš„æŒ‰é’®çš„å›¾ç‰‡
 	 */
 	public static ImageIcon btnBegin = new ImageIcon("skin/Graphics01/begin.png");
 	
 	/**
-	 * ÓÎÏ·×¼±¸¾ÍĞ÷Í¼Æ¬
+	 * æ¸¸æˆå‡†å¤‡å°±ç»ªå›¾ç‰‡
 	 */
 	public static Image ready = new ImageIcon("skin/Graphics01/ready.png").getImage();
 	
 	/**
-	 * µØÃæÍ¼Æ¬
+	 * åœ°é¢å›¾ç‰‡
 	 */
 	public static Image ground = new ImageIcon("skin/Graphics01/ground.png").getImage();
 	
 	/**
-	 * ÉÏ·½Öù×ÓÍ¼Æ¬
+	 * ä¸Šæ–¹æŸ±å­å›¾ç‰‡
 	 */
 	public static Image pillar0 = new ImageIcon("skin/Graphics01/8.png").getImage();
 	
 	/**
-	 * ÏÂ·½Öù×ÓÍ¼Æ¬
+	 * ä¸‹æ–¹æŸ±å­å›¾ç‰‡
 	 */
 	public static Image pillar1 = new ImageIcon("skin/Graphics01/9.png").getImage();
 	
 	/**
-	 * ÔİÍ£Í¼Æ¬
+	 * æš‚åœå›¾ç‰‡
 	 */
 	public static Image pause = new ImageIcon("skin/Graphics01/pause.png").getImage();
 	
 	/**
-	 * ËÀÍöĞ¡ÄñµÄÍ¼Æ¬
+	 * æ­»äº¡å°é¸Ÿçš„å›¾ç‰‡
 	 */
 	public static Image deadbird = new ImageIcon("skin/Graphics01/deadbird.png").getImage();
 	
 	/**
-	 *ÓÎÏ·½áÊøºóÍ¼Æ¬ 
+	 *æ¸¸æˆç»“æŸåå›¾ç‰‡ 
 	 */
 	public static Image gameover = new ImageIcon("skin/Graphics01/gameover.png").getImage();
 	
 	/**
-	 * ÓÎÏ·Ãæ°åµÄÍ¼Æ¬
+	 * æ¸¸æˆé¢æ¿çš„å›¾ç‰‡
 	 */
 	public static Image scoreboard = new ImageIcon("skin/Graphics01/scoreboard.png").getImage();
 	
 	/**
-	 * ´°¿Ú¿ò¼ÜµÄÍ¼Æ¬
+	 * çª—å£æ¡†æ¶çš„å›¾ç‰‡
 	 */
 	public static Image[] windows;
 	static {
 		windows = new Image[3];
-		for(int i = 0; i < 3;i++){
-			windows[i] = new ImageIcon("skin/Graphics01/Window0"+i+".png").getImage();
+		for (int i = 0; i < 3;i++) {
+			windows[i] = new ImageIcon("skin/Graphics01/Window0" + i + ".png").getImage();
 		}
 		
 	}
 	
 	/**
-	 * Êı×ÖÍ¼Æ¬
+	 * æ•°å­—å›¾ç‰‡
 	 */
 	public static Image[] num;
 	static {
 		num = new Image[10];
-		for(int i = 0;i<10;i++){
-			num[i] = new ImageIcon("skin/Graphics01/0"+i+".png").getImage();
+		for (int i = 0;i < 10;i++) {
+			num[i] = new ImageIcon("skin/Graphics01/0" + i + ".png").getImage();
 		}
 		
 	}
 	
 	/**
-	 * ¶¯Ì¬Ğ¡ÄñµÄÍ¼Æ¬
+	 * åŠ¨æ€å°é¸Ÿçš„å›¾ç‰‡
 	 */
 	public static Image[] birds;
-	static{
+	static {
 		birds = new Image[8];
-		for(int i = 0;i<8;i++){
-			birds[i] = new ImageIcon("skin/Graphics01/"+i+".png").getImage();
+		for (int i = 0;i<8;i++) {
+			birds[i] = new ImageIcon("skin/Graphics01/" + i + ".png").getImage();
 		}
 	}
 	

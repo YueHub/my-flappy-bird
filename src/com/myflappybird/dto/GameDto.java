@@ -13,102 +13,102 @@ import com.myflappybird.service.ScoreBoard;
 public class GameDto {
 	
 	/**
-	 * Ğ¡Äñ¶ÔÏó
+	 * å°é¸Ÿå¯¹è±¡
 	 */
 	private Bird bird;
 	
 	/**
-	 * µØÃæ¶ÔÏó
+	 * åœ°é¢å¯¹è±¡
 	 */
 	private Ground ground;
 	
 	/**
-	 * Öù×Ó×éÊı×é
+	 * æŸ±å­ç»„æ•°ç»„
 	 */
 	private Pillars[] pillars;
 	
 	/**
-	 * ÓÎÏ·µÄÊı¾İ¶ÔÏó
+	 * æ¸¸æˆçš„æ•°æ®å¯¹è±¡
 	 */
 	private GameData gamedata;
 	
 	/**
-	 * ·ÖÊıÃæ°å¶ÔÏó
+	 * åˆ†æ•°é¢æ¿å¯¹è±¡
 	 */
 	private ScoreBoard scoreboard; 
 
 	/**
-	 * ÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	private boolean gamestart;
 	
 	/**
-	 * Ğ¡ÄñÔË¶¯µÄËÙ¶È
+	 * å°é¸Ÿè¿åŠ¨çš„é€Ÿåº¦
 	 */
 	private double speed;
 		
 	/**
-	 * Ğ¡ÄñÊÇ·ñÒÑ¾­ËÀÍö
+	 * å°é¸Ÿæ˜¯å¦å·²ç»æ­»äº¡
 	 */
 	private boolean birdDead;
 
 	/**
-	 * ÓÎÏ··ÖÊı
+	 * æ¸¸æˆåˆ†æ•°
 	 */
 	private int score ;
 	
 	/**
-	 * ÊÇ·ñÔİÍ£
+	 * æ˜¯å¦æš‚åœ
 	 */
 	private boolean pause;
 	
 	/**
-	 * ÓÎÏ·ÊÇ·ñ½áÊø
+	 * æ¸¸æˆæ˜¯å¦ç»“æŸ
 	 */
 	private boolean gameover;
 	
 	/**
-	 * ÊÇ·ñÖØĞÂ¿ªÊ¼
+	 * æ˜¯å¦é‡æ–°å¼€å§‹
 	 */
 	private boolean restart;
 	
 	/**
-	 * ¿ªÊ¼ÓÎÏ·µÄ°´Å¥
+	 * å¼€å§‹æ¸¸æˆçš„æŒ‰é’®
 	 */
 	private JButton btnStart;
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public GameDto(){
+	public GameDto() {
 		this.InitDto();
 	}
 	
 	/**
-	 * ³õÊ¼»¯Êı¾İ´«Êä²ã
+	 * åˆå§‹åŒ–æ•°æ®ä¼ è¾“å±‚
 	 */
 	public void InitDto(){
-		//³õÊ¼»¯ÓÎÏ·Ã»ÓĞ¿ªÊ¼
+		//åˆå§‹åŒ–æ¸¸æˆæ²¡æœ‰å¼€å§‹
 		this.gamestart = false;
-		//³õÊ¼»¯Ğ¡ÄñÃ»ÓĞËÀ
+		//åˆå§‹åŒ–å°é¸Ÿæ²¡æœ‰æ­»
 		this.birdDead = false;
-		//³õÊ¼»¯ÓÎÏ·Ã»ÓĞÔİÍ£
+		//åˆå§‹åŒ–æ¸¸æˆæ²¡æœ‰æš‚åœ
 		this.pause = false;
-		//³õÊ¼»¯ÓÎÏ·Ã»ÓĞÖØĞÂ¿ªÊ¼
+		//åˆå§‹åŒ–æ¸¸æˆæ²¡æœ‰é‡æ–°å¼€å§‹
 		this.restart = false;
-		//³õÊ¼»¯ÓÎÏ·Ã»ÓĞ½áÊø
+		//åˆå§‹åŒ–æ¸¸æˆæ²¡æœ‰ç»“æŸ
 		this.gameover = false;
-		//³õÊ¼»¯·ÖÊıÎª0
+		//åˆå§‹åŒ–åˆ†æ•°ä¸º0
 		this.score = 0;
-		//´´½¨Êı¾İ¶ÔÏó
+		//åˆ›å»ºæ•°æ®å¯¹è±¡
 		gamedata = new GameData(this);
-		//´´½¨Ğ¡Äñ¶ÔÏó
+		//åˆ›å»ºå°é¸Ÿå¯¹è±¡
 		bird = new Bird(this,100,250);
-		//´´½¨µØÃæ¶ÔÏó
+		//åˆ›å»ºåœ°é¢å¯¹è±¡
 		ground = new Ground(this,0,498);
-		//´´½¨·ÖÊıÃæ°å¶ÔÏó
+		//åˆ›å»ºåˆ†æ•°é¢æ¿å¯¹è±¡
 		scoreboard = new ScoreBoard(70,500);
-		//´´½¨Öù×Ó×é¶ÔÏó
+		//åˆ›å»ºæŸ±å­ç»„å¯¹è±¡
 		pillars = new Pillars[3];
 		pillars[0] = new Pillars(this,550);
 		pillars[1] = new Pillars(this,790);
@@ -117,20 +117,20 @@ public class GameDto {
 	}
 
 	/**
-	 * ³õÊ¼»¯°´Å¥
+	 * åˆå§‹åŒ–æŒ‰é’®
 	 */
 	public void InitBtn(){	
-		//´´½¨°´Å¥¶ÔÏó
+		//åˆ›å»ºæŒ‰é’®å¯¹è±¡
 		this.btnStart = new JButton(Img.btnBegin);
-		//ÉèÖÃ°´Å¥µÄ±ß¿òÍ¸Ã÷
+		//è®¾ç½®æŒ‰é’®çš„è¾¹æ¡†é€æ˜
 		this.btnStart.setBorder(null);
-		//ÉèÖÃÄÚ²¿Í¸Ã÷
+		//è®¾ç½®å†…éƒ¨é€æ˜
 		this.btnStart.setContentAreaFilled (false);
-		//ÉèÖÃ°´Å¥µÄÎ»ÖÃºÍ´óĞ¡
+		//è®¾ç½®æŒ‰é’®çš„ä½ç½®å’Œå¤§å°
 		this.btnStart.setBounds(56, 415, 238, 89);
-		//Ïò°´Å¥Ìí¼ÓÊÂ¼ş¼àÌı	
-		this.btnStart.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+		//å‘æŒ‰é’®æ·»åŠ äº‹ä»¶ç›‘å¬	
+		this.btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				setGamestart(true);
 			}
 		});
@@ -138,7 +138,7 @@ public class GameDto {
 	}
 	
 	/**
-	 * µÃµ½°´Å¥¶ÔÏó
+	 * å¾—åˆ°æŒ‰é’®å¯¹è±¡
 	 * @return
 	 */
 	public JButton getBtnStart() {
@@ -146,7 +146,7 @@ public class GameDto {
 	}
 
 	/**
-	 * ÉèÖÃ°´Å¥¶ÔÏó
+	 * è®¾ç½®æŒ‰é’®å¯¹è±¡
 	 * @param btnStart
 	 */
 	public void setBtnStart(JButton btnStart) {
@@ -154,21 +154,21 @@ public class GameDto {
 	}
 	
 	/**
-	 * µÃµ½Ğ¡Äñ¶ÔÏó
+	 * å¾—åˆ°å°é¸Ÿå¯¹è±¡
 	 */
 	public Bird getBird(){
 		return bird;
 	}
 	
 	/**
-	 * µÃµ½µØÃæ¶ÔÏó
+	 * å¾—åˆ°åœ°é¢å¯¹è±¡
 	 */
-	public Ground getGround(){
+	public Ground getGround() {
 		return ground;
 	}
 	
 	/**
-	 * µÃµ½Öù×Ó×éÊı×é¶ÔÏó
+	 * å¾—åˆ°æŸ±å­ç»„æ•°ç»„å¯¹è±¡
 	 * @return
 	 */
 	public Pillars[] getPillars(){
@@ -176,7 +176,7 @@ public class GameDto {
 	}
 	
 	/**
-	 *µÃµ½ÓÎÏ·Êı¾İ¶ÔÏó 
+	 *å¾—åˆ°æ¸¸æˆæ•°æ®å¯¹è±¡ 
 	 * @return
 	 */
 	public GameData getGamedata() {
@@ -184,7 +184,7 @@ public class GameDto {
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·Êı¾İ¶ÔÏó
+	 * è®¾ç½®æ¸¸æˆæ•°æ®å¯¹è±¡
 	 * @param gamedata
 	 */
 	public void setGamedata(GameData gamedata) {
@@ -192,7 +192,7 @@ public class GameDto {
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ··ÖÊıµÄÃæ°å¶ÔÏó
+	 * å¾—åˆ°æ¸¸æˆåˆ†æ•°çš„é¢æ¿å¯¹è±¡
 	 * @return
 	 */
 	public ScoreBoard getScoreboard() {
@@ -200,7 +200,7 @@ public class GameDto {
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ··ÖÊıµÄÃæ°å¶ÔÏó
+	 * è®¾ç½®æ¸¸æˆåˆ†æ•°çš„é¢æ¿å¯¹è±¡
 	 * @param scoreboard
 	 */
 	public void setScoreboard(ScoreBoard scoreboard) {
@@ -209,103 +209,102 @@ public class GameDto {
 
 	
 	/**
-	 * µÃµ½ÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * å¾—åˆ°æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	public boolean isGamestart() {
 		return gamestart;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * è®¾ç½®æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	public void setGamestart(boolean gamestart) {
 		this.gamestart = gamestart;
 	}
 
 	/**
-	 * µÃµ½Ğ¡ÄñµÄËÙ¶È
+	 * å¾—åˆ°å°é¸Ÿçš„é€Ÿåº¦
 	 * @return
 	 */
-	public double getSpeed(){
+	public double getSpeed() {
 		return speed;
 	}
 	
 	/**
-	 * ÉèÖÃĞ¡ÄñµÄËÙ¶È
+	 * è®¾ç½®å°é¸Ÿçš„é€Ÿåº¦
 	 * @param speed
 	 */
-	public void setSpeed(double speed){
+	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
 	
 	/**
-	 * µÃµ½Ğ¡ÄñÊÇ·ñÒÑ¾­ËÀÍö
+	 * å¾—åˆ°å°é¸Ÿæ˜¯å¦å·²ç»æ­»äº¡
 	 */
-	public boolean isBirdDead(){
+	public boolean isBirdDead() {
 		return birdDead;
 	}
 	
 	/**
-	 * ÉèÖÃĞ¡ÄñÊÇ·ñËÀÍö
+	 * è®¾ç½®å°é¸Ÿæ˜¯å¦æ­»äº¡
 	 */
-	public void setBirdDead(boolean birdDead){
+	public void setBirdDead(boolean birdDead) {
 		this.birdDead = birdDead;
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ··ÖÊı
+	 * å¾—åˆ°æ¸¸æˆåˆ†æ•°
 	 */
 	public int getScore() {
 		return score;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ··ÖÊı
+	 * è®¾ç½®æ¸¸æˆåˆ†æ•°
 	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·ÊÇ·ñÔİÍ£
+	 * å¾—åˆ°æ¸¸æˆæ˜¯å¦æš‚åœ
 	 */
 	public boolean isPause() {
 		return pause;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÊÇ·ñÔİÍ£
+	 * è®¾ç½®æ¸¸æˆæ˜¯å¦æš‚åœ
 	 */
 	public void setPause(boolean puase) {
 		this.pause = puase;
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·ÊÇ·ñ½áÊø
+	 * å¾—åˆ°æ¸¸æˆæ˜¯å¦ç»“æŸ
 	 */
 	public boolean isGameover() {
 		return gameover;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÊÇ·ñ½áÊø
+	 * è®¾ç½®æ¸¸æˆæ˜¯å¦ç»“æŸ
 	 */
 	public void setGameover(boolean gameover) {
 		this.gameover = gameover;
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·ÊÇ·ñÖØĞÂ¿ªÊ¼
+	 * å¾—åˆ°æ¸¸æˆæ˜¯å¦é‡æ–°å¼€å§‹
 	 */
 	public boolean isRestart() {
 		return restart;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÊÇ·ñÖØĞÂ¿ªÊ¼
+	 * è®¾ç½®æ¸¸æˆæ˜¯å¦é‡æ–°å¼€å§‹
 	 */
 	public void setRestart(boolean restart) {
 		this.restart = restart;
 	}
-
 }

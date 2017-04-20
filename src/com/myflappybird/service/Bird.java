@@ -9,40 +9,34 @@ import com.myflappybird.music.Music;
 
 public class Bird {
 	
-	/**
-	 * ���ݴ����
-	 */
 	GameDto dto;
 	
 	/**
-	 * С��ĳ���
+	 * 小鸟的长度
 	 */
 	private static final int BIRD_WIDTH = 56;
 	
 	/**
-	 * С��ĸ߶�
+	 * 小鸟的宽度
 	 */
 	private static final int BIRD_HEIGHT = 48;
 	
 	/**
-	 * ���X����
+	 * 小鸟的Ｘ坐标
 	 */
 	private int birdX;
 	
 	/**
-	 * ���Y����
+	 * 小鸟的Ｙ坐标
 	 */
 	private int birdY;
 	
 	/**
-	 *���ͼƬid 
+	 *　小鸟的ID
 	 */
 	private int birdID;
 	
-	/**
-	 * ���췽��
-	 */
-	public Bird(GameDto dto,int birdX, int birdY){
+	public Bird(GameDto dto,int birdX, int birdY) {
 		this.birdID = 0;
 		this.dto = dto;
 		this.birdX = birdX;
@@ -50,10 +44,10 @@ public class Bird {
 	}
 	
 	/**
-	 * С�����ķ��������������˶��������˶���
+	 * 小鸟飞翔
 	 */
-	public void birdFly(){
-		if(!this.dto.isGamestart() || this.dto.isGameover() ){
+	public void birdFly() {
+		if (!this.dto.isGamestart() || this.dto.isGameover() ) {
 			return ;
 		}
 		double speed = this.dto.getSpeed() + 4.3;
@@ -62,19 +56,19 @@ public class Bird {
 	}
 	
 	/**
-	 * С�������Ĵ���
+	 * 小鸟死亡
 	 */
-	public void birdDead(){
-		//���С��ײ�ϵ��� ������С������  ��Ϸ����
-		if(this.birdHitGround()){
+	public void birdDead() {
+		//　判断小鸟是否撞地
+		if (this.birdHitGround()) {
 			this.dieMusic();
 			this.hitMusic();
 			this.dto.setBirdDead(true);
 			this.dto.setGameover(true);
 		}
-		//���С��ײ������������С������  ��������׹��
-		if(this.birdHitPillars()){
-			if(!this.dto.isBirdDead()){
+		//　判断小鸟是否装柱子
+		if (this.birdHitPillars()) {
+			if (!this.dto.isBirdDead()) {
 				this.dieMusic();
 				this.hitMusic();
 			}
@@ -84,21 +78,21 @@ public class Bird {
 	}
 	
 	/**
-	 * С��ɵ�����
+	 * 飞翔音效
 	 */
 	public void flyMusic() {
 		try {
 			Music  flyMusic = new Music("Music/wing.wav");
 			flyMusic.musicPlay();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
-	 * С������������
+	 * 死亡音效
 	 */
-	public void dieMusic(){
+	public void dieMusic() {
 		try {
 			Music dieMusic = new Music("Music/die.wav");
 			dieMusic.musicPlay();
@@ -108,9 +102,9 @@ public class Bird {
 	}
 	
 	/**
-	 * С��ײ�����������ʱ������
+	 * 撞击音效
 	 */
-	public void hitMusic(){
+	public void hitMusic() {
 		try {
 			Music hitMusic = new Music("Music/hit.wav");
 			hitMusic.musicPlay();
@@ -120,25 +114,25 @@ public class Bird {
 	}
 	
 	/**
-	 * �õ���ľ��εķ���
+	 * 用以碰撞检测
 	 */
-	public Rectangle getRect(){
+	public Rectangle getRect() {
 		return new Rectangle(birdX, birdY, BIRD_WIDTH, BIRD_HEIGHT);
 	}
 	
 	/**
-	 * ������ķ���
+	 * 绘制小鸟
 	 */
-	public void drawBird(Graphics g){
-		//���С�������ͻ���������С��
-		if(this.dto.isBirdDead()){
+	public void drawBird(Graphics g) {
+		//　小鸟死亡　绘制死亡小鸟
+		if (this.dto.isBirdDead()) {
 			g.drawImage(Img.deadbird, birdX, birdY, null);
 		} 
-		//���С��δ�����ͻ��ƶ�̬С��
-		else{
+		//　未死亡　绘制飞翔小鸟
+		else {
 			//Graphics2D g2 = (Graphics2D)g;
 			//g2.rotate(Math.toRadians(this.dto.getSpeed()*1.1),birdX+BIRD_WIDTH/2,birdY+BIRD_HEIGHT/2);
-			if(birdID==8){
+			if (birdID == 8) {
 				birdID = 0;
 			}
 			g.drawImage(Img.birds[birdID++], birdX, birdY, null);
@@ -147,47 +141,47 @@ public class Bird {
 	}
 
 	/**
-	 * �õ����X����
+	 * 获取小鸟Ｘ坐标
 	 */
-	public int getBirdX(){
+	public int getBirdX() {
 		return birdX;
 	}
 	
 	/**
-	 * �������X����
+	 * 设置小鸟Ｘ坐标
 	 */
-	public void setBirdX(int birdX){
+	public void setBirdX(int birdX) {
 		this.birdX = birdX;
 	}
 	
 	/**
-	 * �õ����Y����
+	 * 获取小鸟Y坐标
 	 */
-	public int getBirdY(){
+	public int getBirdY() {
 		return birdY;
 	}
 	
 	/**
-	 * �������Y����
+	 * 设置小鸟Ｙ坐标
 	 */
-	public void setBirdY(int birdY){
+	public void setBirdY(int birdY) {
 		this.birdY = birdY;
 	}
 	
 	/**
-	 * С���Ƿ�ײ���˵���
+	 * 判断小鸟是否撞地
 	 */
-	public boolean birdHitGround(){
+	public boolean birdHitGround() {
 		return (birdY > 500 - 48);
 	}
 	
 	/**
-	 * С���Ƿ�ײ����������
+	 * 判断小鸟是否撞柱子
 	 * @return
 	 */
-	public boolean birdHitPillars(){
-		for(int i = 0;i<3;i++){
-			if(this.getRect().intersects(this.dto.getPillars()[i].getRect1())||this.getRect().intersects(this.dto.getPillars()[i].getRect2())){
+	public boolean birdHitPillars() {
+		for (int i = 0; i < 3; i++) {
+			if (this.getRect().intersects(this.dto.getPillars()[i].getRect1()) || this.getRect().intersects(this.dto.getPillars()[i].getRect2())) {
 				return true;
 			}
 		}
